@@ -9,5 +9,8 @@ Python 3.9.12 in Pycharm with anaconda3</br>
 </br>
 
 v1.1</br>
-価格取得モデルを追加</br>
+モデル追加</br>
 Python 3.9.12 in notebook</br>
+・株価取得モデル</br>
+・仮想通貨価格取得モデル</br>
+・ニュース取得モデル</br>
