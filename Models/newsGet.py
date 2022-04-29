@@ -16,6 +16,8 @@ article_info = pd.DataFrame(columns=['Date', 'Time', 'Title', 'Articles', 'Link'
 
 
 # Gathering all the data of the current page to one dataframe
+# The frame.append method is deprecated and will be removed from pandas in a future version.
+# Use pandas.concat instead.
 def newsfeed(article_info, raw_dictionary):
     for i in range(len(raw_dictionary) - 1):
         if raw_dictionary is not None:
