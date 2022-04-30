@@ -30,8 +30,10 @@ def newsfeed(article_info, raw_dictionary):
             articles = raw_dictionary[i]['desc']
             link = raw_dictionary[i]['link']
             # Append all the above information in a single dataframe
-            article_info = article_info.append({'Date': date, 'Time': time, 'Title': title,
-                                                'Articles': articles, 'Link': link}, ignore_index=True)
+            info = pd.DataFrame(
+                {'Date': [date], 'Time': [time], 'Title': [title], 'Articles': [articles], 'Link': [link]})
+            article_info = pd.concat([article_info, info])
+
         else:
             break
 
@@ -57,7 +59,7 @@ for steps in range(len(keywords)):
         googlenews.get_page(steps)
         feed = newsfeed(article_info, result)
 
-    articles = articles.append(feed)
+    articles = pd.concat([articles,feed])
 
     # Clear off the search results of previous keyword to avoid duplication
     googlenews.clear()
@@ -66,4 +68,4 @@ shape = articles.shape[0]
 
 # Resetting the index of the final result
 articles.index = np.arange(shape)
-articles
+print(articles)
